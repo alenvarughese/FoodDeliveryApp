@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import PageBanner from "./PageBanner";
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
     const password = loginPasswordRef.current.value;
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,12 +37,12 @@ const Login = () => {
 
   return (
     <div>
-      
+
       <PageBanner title="Login" />
 
       <section className="px-4 py-20">
         <div className="container mx-auto">
-          
+
           <div className="max-w-md mx-auto bg-red-50 rounded-md p-8 text-center shadow-sm">
             <form className="flex flex-col gap-6" onSubmit={submitHandler}>
 

@@ -29,7 +29,7 @@ const AllFoods = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/get-menu");
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/get-menu`);
         const result = await response.json();
         if (result.success) {
           setProducts(result.data);
@@ -149,8 +149,8 @@ const AllFoods = () => {
             onClick={goToPrev}
             disabled={currentPage === 1}
             className={`px-4 py-2 text-white rounded-md transition-colors duration-300 ${currentPage === 1
-                ? 'bg-gray-300 cursor-not-allowed'
-                : 'bg-blue-900 hover:bg-red-600'
+              ? 'bg-gray-300 cursor-not-allowed'
+              : 'bg-blue-900 hover:bg-red-600'
               }`}
           >
             Prev
@@ -161,8 +161,8 @@ const AllFoods = () => {
               key={i + 1}
               onClick={() => paginate(i + 1)}
               className={`w-10 h-10 rounded-md flex items-center justify-center text-white transition-colors duration-300 ${currentPage === i + 1
-                  ? "bg-red-600"
-                  : "bg-blue-900 hover:bg-red-600"
+                ? "bg-red-600"
+                : "bg-blue-900 hover:bg-red-600"
                 }`}
             >
               {i + 1}
@@ -173,8 +173,8 @@ const AllFoods = () => {
             onClick={goToNext}
             disabled={currentPage === totalPages}
             className={`px-4 py-2 text-white rounded-md transition-colors duration-300 ${currentPage === totalPages
-                ? 'bg-gray-300 cursor-not-allowed'
-                : 'bg-blue-900 hover:bg-red-600'
+              ? 'bg-gray-300 cursor-not-allowed'
+              : 'bg-blue-900 hover:bg-red-600'
               }`}
           >
             Next
