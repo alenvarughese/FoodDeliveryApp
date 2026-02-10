@@ -38,8 +38,8 @@ const PopularFoods = () => {
     const fetchData = async () => {
       try {
         const [menuRes, catRes] = await Promise.all([
-          fetch(`${import.meta.env.VITE_API_BASE_URL}/get-menu`),
-          fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories`)
+          fetch("http://localhost:5000/get-menu"),
+          fetch("http://localhost:5000/api/categories")
         ]);
 
         const menuData = await menuRes.json();

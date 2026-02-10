@@ -25,7 +25,7 @@ const Navbar = () => {
         try {
             const user = JSON.parse(localStorage.getItem("user") || "{}");
             if (user && user._id) {
-                await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/${user._id}/status`, {
+                await fetch(`http://localhost:5000/api/users/${user._id}/status`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",

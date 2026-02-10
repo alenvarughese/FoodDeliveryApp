@@ -38,7 +38,7 @@ const CategorySection = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/categories`);
+      const response = await fetch("http://localhost:5000/api/categories");
       const result = await response.json();
       if (result.success) {
         setCategories(result.data);

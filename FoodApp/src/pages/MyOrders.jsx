@@ -11,7 +11,7 @@ const MyOrders = () => {
             try {
                 const user = JSON.parse(localStorage.getItem('user') || '{}');
                 if (user && user._id) {
-                    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/users/${user._id}/orders`);
+                    const response = await axios.get(`http://localhost:5000/api/users/${user._id}/orders`);
                     if (response.data.success) {
                         setOrders(response.data.data);
                     }
