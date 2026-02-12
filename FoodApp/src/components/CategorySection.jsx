@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from '../api/api';
 
 const CategorySection = () => {
   const [categories, setCategories] = useState([]);
