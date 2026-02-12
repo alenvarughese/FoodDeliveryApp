@@ -35,8 +35,8 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/get-menu`);
-        const result = await response.json();
+        const response = await api.get('/get-menu');
+        const result = response.data;
 
         if (result.success) {
           const foundProduct = result.data.find(item => item._id === id);

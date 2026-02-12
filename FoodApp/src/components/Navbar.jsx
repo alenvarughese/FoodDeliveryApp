@@ -25,13 +25,7 @@ const Navbar = () => {
         try {
             const user = JSON.parse(localStorage.getItem("user") || "{}");
             if (user && user._id) {
-                await fetch(`http://localhost:5000/api/users/${user._id}/status`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ status: "inactive" }),
-                });
+                await api.patch(`/api/users/${user._id}/status`, { status: "inactive" });
             }
         } catch (error) {
             console.error("Logout error:", error);
