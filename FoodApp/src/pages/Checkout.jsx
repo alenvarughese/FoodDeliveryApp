@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../components/CartSlice";
 import PageBanner from "../components/PageBanner";
+import api from "../api/api";
 
 const Checkout = () => {
   // 1. Get the subtotal from Redux
@@ -66,15 +67,8 @@ const Checkout = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderData),
-      });
-
-      const result = await response.json();
+      const response = await api.post("/api/orders", orderData);
+      const result = response.data;
 
       if (result.success) {
         alert("Order placed successfully!");

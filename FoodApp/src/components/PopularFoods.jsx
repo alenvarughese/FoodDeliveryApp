@@ -38,12 +38,12 @@ const PopularFoods = () => {
     const fetchData = async () => {
       try {
         const [menuRes, catRes] = await Promise.all([
-          fetch("http://localhost:5000/get-menu"),
-          fetch("http://localhost:5000/api/categories")
+          api.get("/get-menu"),
+          api.get("/api/categories")
         ]);
 
-        const menuData = await menuRes.json();
-        const catData = await catRes.json();
+        const menuData = menuRes.data;
+        const catData = catRes.data;
 
         if (menuData.success) {
           setAllProducts(menuData.data);

@@ -38,8 +38,8 @@ const CategorySection = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/categories");
-      const result = await response.json();
+      const response = await api.get("/api/categories");
+      const result = response.data;
       if (result.success) {
         setCategories(result.data);
       }

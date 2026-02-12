@@ -29,8 +29,8 @@ const AllFoods = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/get-menu");
-        const result = await response.json();
+        const response = await api.get("/get-menu");
+        const result = response.data;
         if (result.success) {
           setProducts(result.data);
         }

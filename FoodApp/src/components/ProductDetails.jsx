@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import PageBanner from '../components/PageBanner';
 
 import { useDispatch } from "react-redux";
 import { cartActions } from './CartSlice';
+import api from '../api/api';
 
 const ProductDetails = () => {
   const { id } = useParams();

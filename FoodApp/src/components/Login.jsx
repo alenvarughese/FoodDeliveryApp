@@ -12,15 +12,8 @@ const Login = () => {
     const password = loginPasswordRef.current.value;
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const result = await response.json();
+      const response = await api.post("/api/login", { email, password });
+      const result = response.data;
 
       if (result.success) {
         localStorage.setItem("user", JSON.stringify(result.data));
